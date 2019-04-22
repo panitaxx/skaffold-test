@@ -8,4 +8,4 @@ COPY . /app
 
 FROM nginx:latest
 RUN rm -fr /usr/share/nginx/html
-COPY --from=0 /app/dist/ /usr/share/nginx/html/
+COPY --from=0 /app /usr/share/nginx/html/
