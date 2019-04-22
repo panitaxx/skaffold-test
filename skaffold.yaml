@@ -1,0 +1,13 @@
+apiVersion: skaffold/v1beta8
+kind: Config
+build:
+  artifacts:
+  - image: gcr.io/ipcom-vcc/example
+    sync:
+      '*.js': .
+  googleCloudBuild:
+    projectId: ipcom-vcc
+deploy:
+  kubectl:
+    manifests:
+    - k8s/pod.yaml

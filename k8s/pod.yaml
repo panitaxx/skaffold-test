@@ -1,0 +1,28 @@
+apiVersion: "extensions/v1beta1"
+kind: Deployment
+metadata:
+  name: example
+  namespace: voip
+  labels:
+    component: example
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      component: example
+  template:
+    metadata:
+      labels:
+        component: example
+    spec:
+      containers:
+        - name: vcc-frontend
+          image: gcr.io/ipcom-vcc/example
+          volumeMounts:
+          resources:
+            requests: 
+              memory: "64Mi"
+              cpu: "10m"
+            limits: 
+              memory: "100Mi"
+              cpu: "20m"
